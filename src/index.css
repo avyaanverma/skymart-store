@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --volt: #c8f400;
+    --ink: #0b0b0b;
+  }
+
+  body {
+    font-family: "Space Grotesk", "Urbanist", sans-serif;
+    color: #f8f8f8;
+    background-color: #070707;
+  }
+}
+
+@layer utilities {
+  .bg-volt {
+    background-color: var(--volt);
+  }
+
+  .text-ink {
+    color: var(--ink);
+  }
+
+  .fill-ink {
+    fill: var(--ink);
+  }
+}
