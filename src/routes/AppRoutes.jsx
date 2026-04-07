@@ -16,12 +16,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/auth",
-    Component: Login
-  },
-  {
     path: "/login",
-    Component: () => <Navigate to="/auth" replace />
+    Component: Login
   },
   {
     path: "/register",

@@ -1,6 +1,41 @@
-import React from 'react'
+import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
+  let navigate = useNavigate();
+  let {
+    register,
+    reset,
+    handleSubmit,
+    setError,
+    formState : {errors, isValid} 
+  } = useForm();
+  const {users} = useAuth();
+
+  const handleFormSubmit = (data)=> {
+    const {email, password} = data;
+
+    const user = users.find((user)=>{
+      return user.email == email;
+    })
+    // if not email
+    if(!user){
+      setError("email", {type: "manual", message: "Email not found"});
+      return;
+    }
+    // if not password match
+    if(password != user.password){
+      setError("password", {type: "manual", message: "Password doesn't match"})
+      return;
+    }
+
+    localStorage.setItem("token", true)
+
+    reset();
+    navigate("/")
+  }
+
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#070707] text-white">
       <div className="h-full w-full grid grid-cols-[1.1fr_auto_1fr]">
@@ -66,28 +101,46 @@ const Login = () => {
               <p className="mt-2 text-sm text-white/60">Enter your credentials to continue</p>
             </div>
 
-            <form className="mt-6 space-y-4">
+            {/* LOGIN FORM */}
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit(handleFormSubmit)}>
               <input
                 type="email"
                 placeholder="Email address"
                 className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/35 focus:outline-none focus:border-[#c8f400] transition"
+                {...register("email", {
+                  required: "Enter Email to sign in",
+                })}
               />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
               <input
                 type="password"
                 placeholder="Password"
                 className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/35 focus:outline-none focus:border-[#c8f400] transition"
+                {...register("password", {
+                  required: "Enter Password to sign in",
+                  minLength: {
+                    value: 6,
+                    message: "Minimum 6 characters are required."
+                  }
+                })}
               />
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )}
               <button
-                type="button"
+                type="submit"
                 className="mt-2 w-full rounded-2xl bg-[#c8f400] py-3 text-sm font-semibold text-[#0b0b0b] transition hover:brightness-95"
               >
-                Sign in Å®
+                Sign in
               </button>
             </form>
 
             <div className="mt-6 text-center text-sm text-white/60">
-              Don&apos;t have an account?{' '}
-              <a className="text-[#c8f400] hover:text-[#d7ff2f] transition" href="/register">
+              Don't have an account?{' '}
+              <a className="text-[#c8f400] hover:text-[#d7ff2f] transition cursor-pointer" onClick={()=>{
+                navigate("/register")}}>
                 Create one
               </a>
             </div>

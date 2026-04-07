@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router'
+import { useAuth } from '../context/AuthContext';
+
 
 const AppLayout = () => {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const {isLoggedIn} = useAuth();
   
   useEffect(() => {
-    // Check if user is logged in (from localStorage)
-    const isLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
-    setUserLoggedIn(isLoggedIn);
     
     if (!isLoggedIn) {
-      navigate("/auth");
+      navigate("/login");
+    }else{
+      navigate("/")
     }
   }, [navigate]);
   
