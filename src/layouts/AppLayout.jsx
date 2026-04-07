@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router'
 import { useAuth } from '../context/AuthContext';
 
@@ -11,13 +11,11 @@ const AppLayout = () => {
     
     if (!isLoggedIn) {
       navigate("/login");
-    }else{
-      navigate("/")
     }
-  }, [navigate]);
+  }, [isLoggedIn, navigate]);
   
   return (
-    <div>AppLayout
+    <div className="min-h-screen bg-[#070707] text-white">
       <Outlet/>
     </div>
   )
