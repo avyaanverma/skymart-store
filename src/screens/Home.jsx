@@ -57,53 +57,6 @@ const newArrivals = [
 const Home = () => {
   return (
     <div className="min-h-screen bg-[#070707] text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b0b0b]/90 backdrop-blur">
-        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-volt">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-zap text-ink fill-ink"
-              >
-                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-              </svg>
-            </div>
-            <span className="text-xl font-semibold tracking-tight">
-              Sky<span className="text-[#c8f400]">Mart</span>
-            </span>
-          </div>
-
-          <div className="hidden items-center gap-8 text-sm text-white/70 md:flex">
-            <span className="font-semibold text-[#c8f400]">Home</span>
-            <span className="hover:text-white">Shop</span>
-            <span className="hover:text-white">About</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#c8f400] text-xs font-semibold text-[#0b0b0b]">
-                A
-              </div>
-              <span className="text-sm text-white/80">avyaan</span>
-            </div>
-            <button className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/70 hover:text-white">
-              <i className="ri-shopping-cart-2-line text-lg"></i>
-            </button>
-            <button className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/70 hover:text-white">
-              <i className="ri-logout-circle-r-line text-lg"></i>
-            </button>
-          </div>
-        </nav>
-      </header>
-
       <main className="mx-auto w-full max-w-6xl space-y-10 px-6 py-8">
         <section className="rounded-[32px] border border-white/10 bg-[#0d0d0d] p-8 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
           <div className="rounded-[26px] border border-white/10 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:28px_28px] p-8">

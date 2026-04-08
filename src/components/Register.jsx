@@ -27,7 +27,8 @@ const Register = () => {
     }])
     console.log(users);
     
-    localStorage.setItem("token", true);
+    localStorage.setItem("token", true)
+    localStorage.setItem("users", users);
 
     reset();
     navigate("/login")

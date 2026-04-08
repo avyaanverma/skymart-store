@@ -6,6 +6,7 @@ import AppLayout from '../layouts/AppLayout'
 import AuthLayout from '../layouts/AuthLayout'
 import Login from '../components/Login'
 import Register from '../components/Register'
+import Shop from '../screens/Shop'
 
 
 const router = createBrowserRouter([
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
     Component: AppLayout,
     children: [
         { index: true, Component: Home },
-        { path: "about", Component: About }
+        { path: "about", Component: About },
+        {path: "shop", Component: Shop}
     ]
   },
   {
