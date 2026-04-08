@@ -31,9 +31,9 @@ const values = [
 ];
 
 const team = [
-  { name: "Isha Rani", role: "Founder", badge: "I", tone: "bg-[#c8f400] text-[#0b0b0b]" },
-  { name: "Shriya Rani", role: "Co-Founder", badge: "S", tone: "bg-[#4f8dff] text-white" },
-  { name: "Avyaan Verma", role: "Chief Technical Officer", badge: "O", tone: "bg-[#a85bff] text-white" }
+  { name: "IR", role: "Founder", badge: "I", tone: "bg-[#c8f400] text-[#0b0b0b]" },
+  { name: "SR", role: "Co-Founder", badge: "S", tone: "bg-[#4f8dff] text-white" },
+  { name: "AV", role: "Chief Technical Officer", badge: "O", tone: "bg-[#a85bff] text-white" }
 ];
 
 const About = () => {
